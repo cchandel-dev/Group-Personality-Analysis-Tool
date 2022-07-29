@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MBTI Analysis of Youtube Video Comments">
+        <title>MBTI Analysis of Youtube Video Comments</title>
+        <!-- Favicon -->
+        <link rel="icon" href="static/images/MBTI-logo.png">
+        <!-- Personal Stylesheet-->
+        <link rel="stylesheet" href="static/css/styles.css">
+        <!-- Animate Stylesheet -->
+        <link rel="stylesheet" href="static/css/animate.css">
+        <!-- JQuery (note that Bootstrap depends on JQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Bootstrap JS-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Bootstrap Timeline CSS -->
+        <link rel="stylesheet" href="static/css/bootstraptimeline.css">
+        <!-- Bootstrap Timeline JS-->
+        <script src="static/js/bootstraptimeline.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <script>
+                output = 'unfilled'
+        </script>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+            <!-- Just an image for the logo in the top left corner -->
+            <a class="navbar-brand" href="#">
+                <img src="static/images/MBTI-logo.png" width="30" height="30" alt="logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav d-flex">
+                    <a class="nav-item nav-link active" href="#title">Home</a>
+                    <a class="nav-item nav-link active" href="#about">About</a>
+                    <a class="nav-item nav-link active" href="#input">Input</a>
+                    <a class="nav-item nav-link active" href="#output">Output</a>
+                </div>
+            </div>
+        </nav>
+        <section class="darker-section" id="title">
+            <!-- Title -->
+            <!--Row 0-->
+            <div class="row">
+                <!--Column 0-->
+                <div class="col-md">
+                    <h1>MBTI Analysis of Youtube Video Comments</h1>
+                </div>
+                <!--Column 1-->
+                <div class="col-md">
+                    <img src="static/images/mbti-art.jpg" alt="mbti-dimension">
+                </div>
+            </div>
+        </section>
+        <section class="darker-section" id="about">
+            <!-- About-->
+            <h3>About This Project</h3>
+            <div class="row">
+                <div class="col-lg">
+                    <p>
+                        <b>Goal</b>
+                        <br>
+                        The goal is to determine personality composition of the comments of any given YouTube video.   
+                        <br>
+                        <b>How it Works</b>
+                        <br>
+                        1. The User provides a Youtube URL.<br>
+                        2. The Server checks the validity of the link and informs the User. <br>
+                        3. The Server scrapes all comments associated with the YouTube video. <br>
+                        4. The comments are analyzed using the propietary NLP AI for their MBTI characteristics. <br>
+                        5. The data is displayed to the user in the Output section.<br>
+                        <br>
+                        <b>Input &Output</b>
+                        <br>
+                        Input: YouTube video URL must be copied and pasted into the textbox in the Input section, then click Enter.<br>
+                        Output:Raw Data file available for download along with a couple of graphs displayed in the Output Section.<br>
+                        <b>MBTI Basics</b>
+                        <br>
+                        <img src="static/images/mbti-chart.png" alt="mbti-dimension">
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="white-section" id="input">
+            <div class="container">
+                <form action="/form-handler" method="POST">
+                    <div>
+                        Video URL: <input type="text" name="url" value="https://">
+                        <br>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+                {% if processed_text %}
+                        <!--p id="text">{{ processed_text }}</p-->
+                    <script>    
+                            output = processed_text
+                    </script>       
+                {% endif %}
+            </div>
+        </section>
+        
+        <section class="darker-section" id="ouput">
+            <!-- Output -->
+            <h3>Output</h3>
+            <div class="projects-container">
+                <p id="text"></p>
+                <div class="row justify-content-center"></div>
+                {% if processed_text %}
+                        <p id="text1">{{ processed_text[0] }}</p>
+                        <p id="text2">{{ processed_text[1] }}</p> 
+                        <p id="text3">{{ processed_text[2] }}</p>
+                        <p id="text4">{{ processed_text[3] }}</p> 
+                {% endif %}
+            </div>
+        </section>
+        <script src="static/js/index.js" charset="utf-8"></script>
+    </body>
+</html>
