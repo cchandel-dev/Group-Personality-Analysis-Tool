@@ -11,13 +11,18 @@
         <link rel="stylesheet" href="static/css/styles.css">
         <!-- JQuery (note that Bootstrap depends on JQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     </head>
     <body>
+        <style>
+            div.centered {
+                text-align: center;
+                /* Center the text inside the element */
+            }
+        </style>
         <section class="white-section" id="input">
             <div class="container">
                 <!--Column 0-->
-                <div class="col-md">
+                <div class="centered">
                     <h1>Group Personality Analysis Tool</h1>
                 </div>
                 <form action="/form-handler" method="POST">
@@ -30,11 +35,15 @@
                 {% if processed_text %}
                 
                 
+                
+                
                 <!--p id="text">{{ processed_text }}</p-->
                 <script>
                     output = processed_text
                 </script>
                 {% endif %}
+            
+            
             
             
             </div>
@@ -53,6 +62,8 @@
                 {% else %}
                         <p id="text1">The output will appear here once you enter a valid YouTube link. </p>
                 {% endif %}            
+            
+            
             
             
             </div>
