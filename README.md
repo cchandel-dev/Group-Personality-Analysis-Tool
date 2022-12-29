@@ -8,6 +8,7 @@ The results that were obtained are shown in the gif below and reveal a group per
 ![](https://github.com/cchandel-dev/Group-Personality-Analysis-Tool/blob/main/demo.gif)
 
 Interestingly I asked OpenAI a follow-up question and got the following result, note that it actually points to Computer Programmers!
+
 ![](https://github.com/cchandel-dev/Group-Personality-Analysis-Tool/blob/main/OpenAI-response.png)
 
 
