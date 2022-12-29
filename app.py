@@ -112,10 +112,5 @@ def analyze(emolex_vector):
           states['P'] = states['P'] + 1
     return(states)
 def final_output(states):
-    
-    # messages.append("Along the Extraversion-Introversion \n axis the ratio was: {} to {}.".format(states['E'], states['I']))
-    # messages.append("Along the Intuitive-Sensing axis the ratio was: {} to {}.".format(states['N'], states['S']))
-    # messages.append("Along the Thinking-Feeling axis the ratio was: {} to {}.".format(states['T'], states['F']))
-    # messages.append("Along the Judging-Percieving axis the ratio was: {} to {}.".format(states['J'], states['P']))
     return states
 app.run(debug = True) 
