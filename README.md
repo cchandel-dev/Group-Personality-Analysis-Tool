@@ -24,6 +24,6 @@ To run this program follow these steps.
     4. go to your choice of web browser and enter http://127.0.0.1:5000/
 
 
-In developing this program - four NLP ML models were used. The development workflow is described visually below - but is not included in the code within this repository.
+In developing this program - four NLP ML models were used. The training workflow for these models is described visually below - but the associated not included in the code within this repository.
 
 ![](https://github.com/cchandel-dev/Group-Personality-Analysis-Tool/blob/main/read%20me%20assets/training-workflow.png) 
